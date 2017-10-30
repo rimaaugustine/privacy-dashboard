@@ -1,0 +1,43 @@
+
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+.vertical-center {
+  display: flex;
+  align-items: center;
+}
+
+
+
+md-card{
+  /*background-color: #4d90fe;*/
+  text-align: center;
+}
+
+h1{
+  text-align: center !important;
+}
+
+.mat-input-placeholder{
+  color: white!important;
+}
+
+.mat-focused .mat-input-placeholder{
+  /*color: #003cb3;*/
+}
+
+md-card-actions{
+  padding-top: 20px;
+}
+
+.mat-raised-button {
+  /*background-color: #C2185B;*/
+}
+
+
+.container {
+  height: calc(100vh - 64px);
+  background-image: url("../../../assets/img/datacenter3b-3.jpg");
+  background-size: 100% ;
+  margin: 0;
+  width: 100%;
+}

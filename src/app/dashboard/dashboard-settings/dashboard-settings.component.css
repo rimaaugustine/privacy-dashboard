@@ -1,0 +1,15 @@
+.settings-header {
+  width: 100%;
+  min-height: 148px;
+  background-image: url("../../../assets/img/settings.jpg");
+  background-position: center center;
+  background-size: cover;
+}
+
+.settings-header h2 {
+  text-shadow: 2px 2px black;
+  margin: 0;
+  padding-left: 16px;
+  padding-top: 100px;
+  color: white;
+}

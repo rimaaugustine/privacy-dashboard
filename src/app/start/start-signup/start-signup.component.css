@@ -1,0 +1,44 @@
+.vertical-center {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
+}
+
+
+.vertical-offset-100{
+  padding-top:100px;
+}
+
+
+md-card{
+
+  text-align: center;
+}
+
+h1{
+  text-align: center !important;
+}
+
+.mat-input-placeholder{
+  color: white!important;
+}
+
+.mat-focused .mat-input-placeholder{
+  /*color: #003cb3;*/
+}
+
+md-card-actions{
+  padding-top: 20px;
+}
+
+.mat-raised-button {
+  /*background-color: #C2185B;*/
+}
+
+
+.container {
+  height: calc(100vh - 64px);
+}
+

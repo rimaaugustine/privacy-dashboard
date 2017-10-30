@@ -1,0 +1,55 @@
+<h1 md-dialog-title>Add Service</h1>
+<div md-dialog-content>
+  <div *ngIf="!button" class="button">
+    Which Service would you like to add?
+  </div>
+</div>
+<div md-dialog-actions>
+  <div *ngIf="!button" class="button">
+    <button md-button [mdMenuTriggerFor]="menu">Choose Service</button>
+  </div>
+  <md-menu #menu="mdMenu">
+    <button md-menu-item (click)="showLogin('Facebook')">Facebook</button>
+    <button md-menu-item (click)="showLogin('Twitter')">Twitter</button>
+    <button md-menu-item (click)="showLogin('WhatsApp')">WhatsApp</button>
+    <button md-menu-item (click)="showLogin('Instagram')">Instagram</button>
+    <button md-menu-item (click)="showLogin('Google')">Google</button>
+    <button md-menu-item (click)="showLogin('Tripadvisor')">Tripadvisor</button>
+    <button md-menu-item (click)="showLogin('Youtube')">Youtube</button>
+    <button md-menu-item (click)="showLogin('Skype')">Skype</button>
+  </md-menu>
+  <div md-dialog-content>
+    <!--Login into service is hidden first through ngif-->
+    <div *ngIf="login" class="login">
+      <div class="">
+        <md-card>
+          <h4>Please login into {{service}}</h4>
+          <md-card-content>
+            <form>
+              <md-input-container>
+                <input mdInput placeholder="Username" size="30">
+              </md-input-container>
+              <div>
+                <md-input-container>
+                  <input mdInput type="password" placeholder="Passwort" size="30">
+                </md-input-container>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <md-checkbox>Remember me</md-checkbox>
+                </div>
+                <div class="col">
+                  <md-card-actions>
+                    <button md-button md-dialog-close color="accent" [routerLink]="['/start/signup/flashcard']">Login</button>
+                    <button md-button (click)="showLogin()" color="accent">Go Back</button>
+                  </md-card-actions>
+                </div>
+              </div>
+            </form>
+          </md-card-content>
+        </md-card>
+      </div>
+    </div>
+
+  </div>
+</div>

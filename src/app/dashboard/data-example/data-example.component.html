@@ -1,0 +1,235 @@
+<md-toolbar></md-toolbar>
+<div class="container main-container">
+
+
+  <md-tab-group md-stretch-tabs  [(selectedIndex)]="selectedIndex">
+    <md-tab label="Home" data-target="#home">
+      <div class="container-fluid tab-container">
+        <div class="row data-row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <md-card> <b>Timeline</b>
+
+
+              <canvas baseChart width="400" height="100"
+                      [datasets]="lineChartData"
+                      [labels]="lineChartLabels"
+                      [options]="lineChartOptions"
+                      [colors]=""
+                      [legend]="lineChartLegend"
+                      [chartType]="lineChartType"
+                      (chartHover)="chartHovered($event)"
+                      (chartClick)="chartClicked($event)"></canvas>
+
+
+            </md-card>
+          </div>
+        </div>
+        <div class="row data-row">
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+            <button md-button class="home-button" (click)="selectedIndex = 1">
+              <md-card> <span class="badge badge-info">10</span> New Activites</md-card>
+            </button>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+            <button md-button class="home-button" (click)="selectedIndex = 2">
+              <md-card> <span class="badge badge-info">2</span> Pending Change Requests</md-card>
+            </button>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+            <button md-button class="home-button" (click)="selectedIndex = 3">
+              <md-card> <span class="badge badge-error">1</span> Given Informed Consents</md-card>
+            </button>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+            <button md-button class="home-button" (click)="selectedIndex = 4">
+              <md-card><span class="badge badge-info">4</span> Messages</md-card>
+            </button>
+          </div>
+
+        </div>
+        <div class="row data-row">
+          <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+            <md-card><b>Locations</b>
+              <div style="display: block" >
+                <canvas baseChart height="120"
+                        [datasets]="barChartData2"
+                        [labels]="barChartLabels2"
+                        [options]="barChartOptions2"
+                        [legend]="barChartLegend2"
+                        [chartType]="barChartType2"
+                        (chartHover)="chartHovered($event)"
+                        (chartClick)="chartClicked($event)"></canvas>
+
+              </div>
+            </md-card>
+          </div>
+
+          <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <md-card>
+              <canvas baseChart
+                      [data]="pieChartData2"
+                      [labels]="pieChartLabels2"
+                      [chartType]="pieChartType2"
+                      (chartHover)="chartHovered($event)"
+                      (chartClick)="chartClicked($event)"></canvas>
+
+            </md-card>
+          </div>
+
+        </div>
+        <div class="row data-row">
+          <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+
+            <md-card>
+              <b>Likes</b>
+              <div style="display: block">
+                <canvas baseChart
+                        [data]="pieChartData"
+                        [labels]="pieChartLabels"
+                        [chartType]="pieChartType"
+                        (chartHover)="chartHovered($event)"
+                        (chartClick)="chartClicked($event)"></canvas>
+
+              </div>
+
+            </md-card>
+
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <md-card><b>Ads total</b>
+
+              <div>
+                <div style="display: block" >
+                  <canvas baseChart height="230"
+                          [datasets]="barChartData"
+                          [labels]="barChartLabels"
+                          [options]="barChartOptions"
+                          [legend]="barChartLegend"
+                          [chartType]="barChartType"
+                          (chartHover)="chartHovered($event)"
+                          (chartClick)="chartClicked($event)"></canvas>
+                </div>
+                <md-card style="color: white; background-color:#B39DDB; text-align: center">
+                  <h3>IN TOTAL : 123</h3>
+                </md-card>
+
+              </div>
+            </md-card>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <md-card><b>Events statistic</b>
+              <div style="display: block">
+                <canvas baseChart
+                        [data]="doughnutChartData"
+                        [labels]="eventStatuses"
+                        [chartType]="doughnutChartType"
+                        (chartHover)="chartHovered($event)"
+                        (chartClick)="chartClicked($event)"></canvas>
+              </div>
+            </md-card>
+          </div>
+        </div>
+      </div>
+
+
+
+    </md-tab>
+    <md-tab label="Activites" data-target="#activities">
+      <md-card>
+        <h3>Activites log</h3>
+        <ngx-datatable class=""
+                       style=""
+                       [rows]="rows"
+                       [columnMode]="'standard'"
+                       [columns]="columns"
+                       [headerHeight]="50"
+                       [footerHeight]="50"
+
+                       [rowHeight]="'auto'"
+                       [limit]="5"
+                       (activate)="onActivate($event)"
+                       (select)='onSelect($event)'>
+
+        </ngx-datatable>
+      </md-card>
+
+    </md-tab>
+
+    <md-tab label="Consents" data-target="#informed">
+      <md-card>
+        <h3>Informed Consents</h3>
+        <ngx-datatable class=""
+                       style=""
+                       [rows]="consents"
+                       [columnMode]="'standard'"
+                       [columns]="columnsConcents"
+                       [headerHeight]="50"
+                       [footerHeight]="50"
+                       [rowHeight]="'auto'"
+                       [limit]="10"
+                       (activate)="onActivate($event)"
+                       (select)='onSelect($event)'>
+
+        </ngx-datatable>
+      </md-card>
+    </md-tab>
+
+    <md-tab label="Messages" data-target="#messages">
+      <div class="container main-container">
+        <br>
+        <div class="row">
+          <div class="col-md-8">
+            <md-card>
+              <h3>
+                Inbox
+              </h3>
+
+
+              <ngx-datatable class=""
+                             style=""
+                             [rows]="rows"
+                             [columnMode]="'standard'"
+                             [columns]="columns"
+                             [headerHeight]="50"
+                             [footerHeight]="50"
+                             [rowHeight]="'auto'"
+                             [limit]="5"
+                             [selected]="selected"
+                             [selectionType]="'single'"
+                             (activate)="onActivate($event)"
+                             (select)='onSelect($event)'>
+
+              </ngx-datatable>
+
+            </md-card>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-md-4">
+              <div class='selected-column'>
+                <md-card>
+                  <h4>Message</h4>
+
+                  <ul>
+                    <li *ngFor='let sel of selected'>
+                      <p> From {{sel.From}} | {{sel.Date}}</p>
+                      <p>{{sel.Subject}}</p>
+                    </li>
+                    <li *ngIf="!selected.length">No Selections</li>
+                  </ul>
+                </md-card>
+
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </md-tab>
+    <md-tab label="Data" data-target="#data">Data
+    </md-tab>
+  </md-tab-group>
+</div>
+
+

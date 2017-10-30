@@ -1,0 +1,40 @@
+<md-toolbar></md-toolbar>
+<div class="container vertical-center">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4" >
+      <md-card>
+        <md-card-content>
+          <md-card-title>Sign Up!</md-card-title>
+          <md-input-container>
+              <input mdInput placeholder="First Name"  size="30">
+          </md-input-container>
+            <div>
+              <md-input-container>
+                <input mdInput placeholder="Last Name"  size="30">
+              </md-input-container>
+            </div>
+            <div>
+              <md-input-container>
+                <input mdInput type="email" placeholder="Email"  size="30">
+              </md-input-container>
+            </div>
+            <div>
+              <md-input-container>
+                <input mdInput type="password" placeholder="Passwort"  size="30">
+              </md-input-container>
+            </div>
+            <div class="row">
+              <div class="col">
+                <md-checkbox>Remember me</md-checkbox>
+              </div>
+              <div class="col">
+                <md-card-actions>
+                  <md-card-actions>
+                    <button md-raised-button color="accent" [routerLink]="['./first-service']">Signup</button>
+                  </md-card-actions>
+                </md-card-actions>
+              </div>
+            </div>
+        </md-card-content>
+      </md-card>
+    </div>
+</div>

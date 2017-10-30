@@ -1,0 +1,66 @@
+<md-toolbar></md-toolbar>
+<div class="container main-container">
+  <md-tab-group md-stretch-tabs>
+    <md-tab label="Home">
+      <div class="container-fluid tab-container">
+        <div class="row data-row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <md-card>General Informations</md-card>
+          </div>
+        </div>
+        <div class="row data-row">
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+            <button md-button class="home-button">
+              <md-card>
+                <div style="display: block">
+                  <canvas baseChart
+                          [data]="doughnutChartData"
+                          [labels]="doughnutChartLabels"
+                          [chartType]="doughnutChartType"
+                          (chartHover)="chartHovered($event)"
+                          (chartClick)="chartClicked($event)"></canvas>
+                </div>
+              </md-card>
+            </button>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+            <button md-button class="home-button">
+              <md-card>New Activites</md-card>
+            </button>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+            <button md-button class="home-button">
+              <md-card>Pending Change Requests</md-card>
+            </button>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+            <button md-button class="home-button">
+              <md-card>Given Informed Consents</md-card>
+            </button>
+          </div>
+        </div>
+        <div class="row data-row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <md-card>Some graph</md-card>
+          </div>
+        </div>
+        <div class="row data-row">
+          <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <md-card>Some graph</md-card>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <md-card>Some graph</md-card>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <md-card>Some graph</md-card>
+          </div>
+        </div>
+      </div>
+    </md-tab>
+    <md-tab label="Activites">Activites</md-tab>
+    <md-tab label="Change Requests">Change Requests</md-tab>
+    <md-tab label="Consents">Informed Consents</md-tab>
+    <md-tab label="Messages">Messages</md-tab>
+    <md-tab label="Data">Data</md-tab>
+  </md-tab-group>
+</div>

@@ -1,0 +1,93 @@
+<md-toolbar></md-toolbar>
+<div class="container main-container">
+  <md-tab-group md-stretch-tabs>
+    <md-tab label="Home">
+      <div class="container-fluid tab-container">
+        <div class="row data-row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <md-card>General Informations</md-card>
+          </div>
+        </div>
+        <div class="row data-row">
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+            <button md-button class="home-button">
+              <md-card>New Messages</md-card>
+            </button>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+            <button md-button class="home-button">
+              <md-card>New Activites</md-card>
+            </button>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+            <button md-button class="home-button">
+              <md-card>Pending Change Requests</md-card>
+            </button>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+            <button md-button class="home-button">
+              <md-card>
+              </md-card>
+            </button>
+          </div>
+        </div>
+        <div class="row data-row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <md-card>Some graph</md-card>
+          </div>
+        </div>
+        <div class="row data-row">
+          <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <md-card>Some graph</md-card>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <md-card>Some graph</md-card>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <md-card>Some graph</md-card>
+          </div>
+        </div>
+      </div>
+    </md-tab>
+    <md-tab label="Activites">Activites</md-tab>
+    <md-tab label="Change Requests">Change Requests</md-tab>
+    <md-tab label="Consents">Informed Consents</md-tab>
+    <md-tab label="Messages">Messages</md-tab>
+    <md-tab label="Data">
+      <div class="example-container mat-elevation-z8">
+        <md-table #table [dataSource]="dataSource">
+
+          <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+
+          <!-- ID Column -->
+          <ng-container cdkColumnDef="userId">
+            <md-header-cell *cdkHeaderCellDef> ID </md-header-cell>
+            <md-cell *cdkCellDef="let row"> {{row.id}} </md-cell>
+          </ng-container>
+
+          <!-- Progress Column -->
+          <ng-container cdkColumnDef="progress">
+            <md-header-cell *cdkHeaderCellDef> Progress </md-header-cell>
+            <md-cell *cdkCellDef="let row"> {{row.progress}}% </md-cell>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container cdkColumnDef="userName">
+            <md-header-cell *cdkHeaderCellDef> Name </md-header-cell>
+            <md-cell *cdkCellDef="let row"> {{row.name}} </md-cell>
+          </ng-container>
+
+          <!-- Color Column -->
+          <ng-container cdkColumnDef="color">
+            <md-header-cell *cdkHeaderCellDef>Color</md-header-cell>
+            <md-cell *cdkCellDef="let row" [style.color]="row.color"> {{row.color}} </md-cell>
+          </ng-container>
+
+          <md-header-row *cdkHeaderRowDef="displayedColumns"></md-header-row>
+          <md-row *cdkRowDef="let row; columns: displayedColumns;"></md-row>
+        </md-table>
+      </div>
+    </md-tab>
+  </md-tab-group>
+</div>

@@ -1,0 +1,22 @@
+<!--Login into service is hidden first through ngif-->
+    <div *ngIf="!login" class="login">
+      <div class="row">
+        <h1 md-dialog-title>Please login into {{data}}</h1>
+              <form>
+                <md-input-container>
+                  <input mdInput placeholder="Username" size="30">
+                </md-input-container>
+                <div>
+                  <md-input-container>
+                    <input mdInput type="password" placeholder="Passwort" size="30">
+                  </md-input-container>
+                </div>
+                <div class="row">
+                  <div class="col">
+                      <button md-button md-dialog-close color="accent" [routerLink]="['/start/signup/flashcard']">Login</button>
+                      <button md-button md-dialog-close color="accent">Go Back</button>
+                  </div>
+                </div>
+              </form>
+      </div>
+    </div>

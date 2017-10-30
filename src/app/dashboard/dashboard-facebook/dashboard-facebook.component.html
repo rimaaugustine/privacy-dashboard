@@ -1,0 +1,764 @@
+<md-toolbar></md-toolbar>
+
+<!--<md-toolbar style="background-color: #00aff0;color: white"> <h1>Facebook</h1>-->
+<!--<md-tab-group [(selectedIndex)]="selectedIndex" headerPosition="center" md-stretch-tabs>-->
+<!--<md-tab label = "home">-->
+<!---->
+<!--</md-tab>-->
+<!--<md-tab label = "Activities">-->
+<!--</md-tab>-->
+<!--<md-tab label = "Consents">-->
+<!--</md-tab>-->
+<!--<md-tab label = "Messages">-->
+<!--</md-tab>-->
+<!--<md-tab label = "Data">-->
+<!--</md-tab>-->
+<!--</md-tab-group>-->
+<!--</md-toolbar>-->
+
+<div class="service-header">
+  <h2>Welcome to your Privacy Dashboard for Facebook!</h2>
+</div>
+
+<div class="container main-container" id="foo">
+  <md-tab-group md-stretch-tabs [(selectedIndex)]="selectedIndex" aria-hidden="true" md-tab-header="false">
+    <md-tab label="Home" data-target="#home">
+      <div class="container-fluid tab-container">
+
+        <h3>General Informations</h3>
+        <div fxLayout="row" class="zero" fxLayoutWrap>
+          <div fxFlex.xs="100" fxFlex.gt-xs="50">
+            <md-card>
+              <md-card-content>
+                <md-card-title>
+                  <b>Facebook Profile</b>
+                </md-card-title>
+                <div fxLayout="row">
+                  <div fxFlex="none">
+                    <img class="profile-image" src="../../../assets/img/surferpic.png">
+                  </div>
+                  <div fxFlex="100">
+                    <table class="table">
+                      <tbody>
+                      <tr>
+                        <td>Name</td>
+                        <td>Wendy Perez</td>
+                      </tr>
+                      <tr>
+                        <td>E-Mail</td>
+                        <td>wendy.perez30@example.com</td>
+                      </tr>
+                      <tr>
+                        <td>Member since</td>
+                        <td>11/7/2008</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </md-card-content>
+              <md-card-actions>
+                <button md-button color="primary" (click)="selectedIndex = 4">Details</button>
+              </md-card-actions>
+            </md-card>
+          </div>
+          <div fxFlex.xs="100" fxFlex.gt-xs="50" style="height: 100%;">
+            <md-card>
+              <md-card-content>
+                <md-card-title>
+                  <b>Data Privacy Contact</b>
+                </md-card-title>
+                <div fxLayout="row">
+                  <div fxFlex="none">
+                    <img class="profile-image" src="../../../assets/img/fb-art.png">
+                  </div>
+                  <div fxFlex="100">
+                    <table class="table">
+                      <tbody>
+                      <tr>
+                        <td>Controller</td>
+                        <td>Facebook Data Privacy Team Berlin</td>
+                      </tr>
+                      <tr>
+                        <td>Contact</td>
+                        <td>Jeremy Stevens</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </md-card-content>
+              <md-card-actions>
+                <button md-button color="primary" (click)="openMessageDialog()">Contact Controller</button>
+              </md-card-actions>
+            </md-card>
+          </div>
+          <div fxFlex="100" style="height: 100%;">
+            <md-card>
+              <md-card-content>
+                <md-card-title>
+                  <b>New Messages (2)</b><span class="badge badge-error"></span>
+                </md-card-title>
+                <table class="table">
+                  <thead>
+                  <tr>
+                    <th>From</th>
+                    <th>Subject</th>
+                    <th>Time</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>J. Stevens</td>
+                    <td>Data Change Request #12345 approved</td>
+                    <td>12:13 p.m.</td>
+                  </tr>
+                  <tr>
+                    <td>Facebook</td>
+                    <td>Change of Terms and Conditions</td>
+                    <td>yesterday</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </md-card-content>
+              <md-card-actions>
+                <button md-button color="primary"(click)="selectedIndex = 3">All messages</button>
+              </md-card-actions>
+            </md-card>
+          </div>
+        </div>
+        <md-divider></md-divider>
+
+        <!--row 1-->
+        <h3>Connected Services and Companies</h3>
+        <div fxLayout="row" fxLayoutWrap>
+          <div fxFlex.gt-xs="50" fxFlex.xs="100">
+            <md-card>
+              <md-card-title><b>Services & Companies</b></md-card-title>
+              <md-card-content style="height: 170px; overflow-y: auto ">
+                <md-list *ngFor="let service of services" (click)="selectService(service)">
+
+                  <md-list-item class="md-3-line">
+                    <img md-list-avatar [src]="service.image" alt="">
+                    <h3 md-line> {{service.name}}</h3>
+                  </md-list-item>
+                  <md-divider></md-divider>
+
+
+                </md-list>
+              </md-card-content>
+              <md-card-actions>
+                <button md-button color="primary" (click)="selectedIndex = 2">View All</button>
+              </md-card-actions>
+            </md-card>
+          </div>
+
+          <div fxFlex.gt-xs="50" fxFlex.xs="100">
+            <md-card>
+              <div fxLayout="row">
+                <div fxFlex="none">
+                  <md-card-title><b>Data Usage Rights</b></md-card-title>
+                </div>
+                <div fxFlex="100">
+
+                </div>
+                <div fxFlex="none">
+
+
+                </div>
+              </div>
+              <md-card-content style="height: 170px; overflow-y: auto ">
+
+                <md-list class="padding" *ngIf="selectedService">
+                  <b>Can access your data:</b>
+                  <md-list-item *ngFor="let element of selectedService.data">
+
+                    <h5>{{element}}</h5>
+                  </md-list-item>
+                  <br>
+                  <b>Can send you:</b>
+
+                  <md-list-item *ngFor="let capable of selectedService.capable">
+
+                    <h5>{{capable}}</h5>
+
+                  </md-list-item>
+
+                </md-list>
+              </md-card-content>
+              <md-card-actions>
+                <button md-button color="primary" (click)="selectedIndex = 2">View Consents</button>
+              </md-card-actions>
+            </md-card>
+          </div>
+
+          <div fxFlex="100">
+            <md-card>
+              <div fxLayout="row">
+                <div fxFlex="none">
+                  <md-card-title><b>Data Access Activity </b></md-card-title>
+                </div>
+                <div fxFlex="100">
+
+                </div>
+                <div fxFlex="none">
+
+                </div>
+              </div>
+
+              <md-card-content class="goneSmall">
+                <canvas baseChart width="400" height="130"
+                        [datasets]="lineChartData"
+                        [labels]="lineChartLabels"
+                        [options]="lineChartOptions"
+                        [colors]=""
+                        [legend]="lineChartLegend"
+                        [chartType]="lineChartType"
+                        (chartHover)="chartHovered($event)"
+                        (chartClick)="chartClicked($event)"></canvas>
+              </md-card-content>
+              <md-card-actions>
+                <button md-button color="primary" (click)="selectedIndex = 1">View Activities</button>
+              </md-card-actions>
+            </md-card>
+          </div>
+        </div>
+
+        <md-divider></md-divider>
+
+        <!--row 2
+        <div class="row data-row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <md-card>
+              <md-card-title><b>Personal Data Usage by Companies</b></md-card-title>
+              <div class="row data-row">
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+
+                  <md-card>
+                    <b>Company</b>
+
+                  </md-card>
+
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                  <md-card><b>Data Usage</b>
+
+                  </md-card>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                  <md-card><b>About Company</b>
+
+                  </md-card>
+                </div>
+              </div>
+            </md-card>
+          </div>
+        </div>
+        -->
+        <h3>Likes</h3>
+        <div fxLayout="row" class="zero" fxLayoutWrap>
+          <div fxFlex="33">
+            <md-card>
+              <div fxLayout="row">
+                <div fxFlex="none">
+                  <md-card-title><b>Recent Likes</b></md-card-title>
+                </div>
+                <div fxFlex="100">
+
+                </div>
+                <div fxFlex="none">
+                </div>
+              </div>
+              <md-card-content style="height: 210px; overflow-y: auto ">
+                <table class="table">
+                  <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Origin</th>
+                    <th>Category</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let like of likes">
+                    <td>{{like.date | date:'MM/dd/yyyy'}}</td>
+                    <td>{{like.like}}</td>
+                    <td>{{like.category}}</td>
+                  </tr>
+                  </tbody>
+                </table>
+
+              </md-card-content>
+              <md-card-actions>
+                <button md-button color="primary" (click)="selectedIndex = 4">View All</button>
+              </md-card-actions>
+            </md-card>
+          </div>
+
+          <div fxFlex.gt-sm="33" fxFlex.lt-sm="100">
+            <md-card>
+
+              <md-card-title><b>Interests based on Likes</b></md-card-title>
+
+              <md-card-content style="height: 205px; overflow-y: auto ">
+                <md-select [(ngModel)]="selectedValue" style="width: 80%">
+                  <md-option *ngFor="let food of foods" [value]="food">
+                    {{food.viewValue}}
+                  </md-option>
+                </md-select>
+                <div *ngIf="selectedValue">
+                  <md-list class="padding" *ngFor="let o of selectedValue.details">
+                    <md-list-item>
+                      <p>{{o}}</p>
+                    </md-list-item>
+                  </md-list>
+                </div>
+              </md-card-content>
+            </md-card>
+          </div>
+
+          <div fxFlex.gt-sm="33" fxFlex.lt-sm="100">
+
+            <md-card>
+              <md-card-title><b>Most Interests</b></md-card-title>
+              <md-card-content>
+                <canvas baseChart
+                        responsive="true"
+                        [data]="pieChartData"
+                        [labels]="pieChartLabels"
+                        [chartType]="pieChartType"
+                        (chartHover)="chartHovered($event)"
+                        (chartClick)="chartClicked($event)"></canvas>
+              </md-card-content>
+            </md-card>
+          </div>
+        </div>
+
+        <md-divider></md-divider>
+
+        <!--row 5-->
+        <h3>Advertisements</h3>
+        <div fxLayout="row" fxLayoutWrap>
+          <div fxFlex.gt-sm="33" fxFlex.lt-sm="100">
+            <md-card>
+              <md-card-title><b>Recent Ads</b></md-card-title>
+              <md-card-content style="height: 190px; overflow-y: auto ">
+                <md-nav-list *ngFor="let ad of ads" (click)="selectAds(ad)">
+                  <md-list-item class="md-3-line">
+                    <h3 md-line> {{ad.name}}</h3>
+                  </md-list-item>
+                  <md-divider></md-divider>
+                </md-nav-list>
+              </md-card-content>
+            </md-card>
+          </div>
+          <div fxFlex.gt-sm="33" fxFlex.lt-sm="100">
+            <md-card>
+              <md-card-title><b>Company</b></md-card-title>
+              <md-card-content style="height: 190px; overflow-y: auto ">
+
+                <md-list>
+                  <md-list-item>
+                    <div *ngIf="selectedAd"><h5>Company Name: {{selectedAd.Company}}</h5></div>
+                  </md-list-item>
+                  <md-divider></md-divider>
+                  <md-list-item>
+                    <div *ngIf="selectedAd"><h5>Description: {{selectedAd.Description}}</h5></div>
+                  </md-list-item>
+                  <md-divider></md-divider>
+                  <md-list-item>
+                    <div *ngIf="selectedAd"><h5>Access to profile data: {{selectedAd.ContactInfo}}</h5></div>
+                  </md-list-item>
+                  <md-divider></md-divider>
+                  <md-list-item>
+                    <div *ngIf="selectedAd"><h5>Date Showed: {{selectedAd.DateShow}}</h5></div>
+                  </md-list-item>
+                  <md-divider></md-divider>
+                </md-list>
+              </md-card-content>
+            </md-card>
+          </div>
+          <div fxFlex.gt-sm="34" fxFlex.lt-sm="100">
+            <md-card>
+              <md-card-title><b>About ads from {{selectedAd.Company}} </b></md-card-title>
+              <md-card-content style="height: 190px; overflow-y: auto ">
+                <md-list>
+                  <md-list-item>
+                    <div *ngIf="selectedAd"><h5>Count Showed: {{selectedAd.Count}}</h5></div>
+                  </md-list-item>
+                  <md-divider></md-divider>
+                  <md-list-item>
+                    <div *ngIf="selectedAd"><h5>Reasons Showed: {{selectedAd.Reasons}}</h5></div>
+                  </md-list-item>
+                  <md-divider></md-divider>
+                  <md-list-item>
+                    <div *ngIf="selectedAd"><h5>Date Clicked: {{selectedAd.DateClick}}</h5></div>
+                  </md-list-item>
+                  <md-divider></md-divider>
+                </md-list>
+              </md-card-content>
+            </md-card>
+          </div>
+        </div>
+
+        <md-divider></md-divider>
+        <!--row 3-->
+        <h3>Locations</h3>
+        <div fxLayout="row" fxLayoutWrap>
+          <div fxFlex.gt-sm="33" fxFlex.lt-sm="100">
+            <md-card>
+              <md-card-title><b>Location Data Source</b></md-card-title>
+              <md-card-content>
+                <canvas baseChart
+                        [data]="doughnutChartData"
+                        [labels]="doughnutChartLabels"
+                        [chartType]="doughnutChartType"
+                        (chartHover)="chartHovered($event)"
+                        (chartClick)="chartClicked($event)"></canvas>
+
+
+              </md-card-content>
+            </md-card>
+          </div>
+          <div fxFlex.gt-sm="67" fxFlex.lt-sm="100">
+            <md-card style="height: 400px">
+              <md-card-title><b>Location Map</b></md-card-title>
+              <md-card-content>
+                <agm-map [latitude]="lat" [longitude]="lng">
+                  <agm-marker *ngFor="let m of markers; let i = index"
+                              (markerClick)="clickedMarker(m.label, i)"
+                              [latitude]="m.lat"
+                              [longitude]="m.lng"
+                              [label]="m.label"
+                              [markerDraggable]="m.draggable"
+                              (dragEnd)="markerDragEnd(m, $event)"></agm-marker>
+                </agm-map>
+              </md-card-content>
+
+            </md-card>
+          </div>
+        </div>
+      </div>
+    </md-tab>
+    <!--tab activities-->
+    <md-tab label="Activites" data-target="#activities">
+      <div class="container-fluid tab-container">
+        <h3>Personal Data Activities</h3>
+        <div fxLayout="row">
+
+          <md-card fxFlex="100">
+            <md-card-title><b>Data Accessings</b></md-card-title>
+            <md-card-content style="height: 300px; overflow-y: auto">
+              <table class="table">
+                <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Service</th>
+                  <th>Purpose</th>
+                  <th>Data</th>
+                  <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let activity of accessActivities">
+                  <td>{{activity.date | date:'MM/dd/yyyy'}}</td>
+                  <td>{{activity.service}}</td>
+                  <td>{{activity.purpose}}</td>
+                  <td>{{activity.data}}</td>
+                  <td>
+                    <button md-button color="primary">Details</button>
+                    <button md-button color="primary" (click)="selectedIndex = 2">See Consent</button>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </md-card-content>
+          </md-card>
+        </div>
+        <div fxLayout="row">
+          <md-card fxFlex="100">
+            <md-card-title><b>Data Transfers</b></md-card-title>
+            <md-card-content style="height: 300px; overflow-y: auto">
+              <table class="table">
+                <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>To Company</th>
+                  <th>Purpose</th>
+                  <th>Data</th>
+                  <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let activity of transferActivities">
+                  <td>{{activity.date | date:'MM/dd/yyyy'}}</td>
+                  <td>{{activity.to}}</td>
+                  <td>{{activity.purpose}}</td>
+                  <td>{{activity.data}}</td>
+                  <td>
+                    <button md-button color="primary">Details</button>
+                    <button md-button color="primary" (click)="selectedIndex = 2">See Consent</button>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </md-card-content>
+          </md-card>
+        </div>
+      </div>
+
+
+    </md-tab>
+
+    <!--tab Consents-->
+    <md-tab label="Consents" data-targetx="#informed">
+      <br>
+
+      <md-card>
+        <md-card-title><h3>Informed Consents</h3></md-card-title>
+        <md-card-content>
+          <table class="table  table-sm">
+            <thead class="table-info">
+            <tr>
+
+              <th>Company/Service</th>
+              <th>Data</th>
+              <th>Purpose</th>
+              <th>Date</th>
+              <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody *ngFor="let c of consents2">
+
+            <tr>
+
+              <td>{{c.company}}</td>
+              <td>{{c.data}}</td>
+              <td class="table-danger">{{c.purpose}}</td>
+              <td>{{c.date}}</td>
+              <td>
+                <md-slide-toggle color="primary" checked="true">
+
+                </md-slide-toggle>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+
+          <button md-button color="primary">Approve</button>
+
+
+        </md-card-content>
+        <!--<md-card-footer>-->
+          <!--&lt;!&ndash;<md-paginator [length]="16"&ndash;&gt;-->
+                        <!--&lt;!&ndash;[pageSize]="5"&ndash;&gt;-->
+                        <!--&lt;!&ndash;[pageSizeOptions]="[5, 10, 25, 100]">&ndash;&gt;-->
+          <!--&lt;!&ndash;</md-paginator>&ndash;&gt;-->
+        <!--</md-card-footer>-->
+      </md-card>
+
+    </md-tab>
+
+
+    <!--tab Messages-->
+    <md-tab class="badge badge-info" label="Messages" data-target="#messages">
+      <div class="container-fluid tab-container">
+        <div class="row data-row">
+          <div class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
+            <md-card style="height: 56vh; overflow-y: auto ">
+              <md-card-content>
+                <h5>Incoming Messages</h5>
+                <md-nav-list>
+                    <md-list-item *ngFor="let message of facebookMessages"
+                                  (click)="setSelectedMessage(message)">
+                      <h3 md-line>{{message.from}}</h3>
+                      <p md-line dense>{{message.date}}</p>
+                      <p md-line>{{message.title}}</p>
+                    </md-list-item>
+                </md-nav-list>
+              </md-card-content>
+            </md-card>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-4 col-lg-7">
+            <md-card style="height: 56vh; overflow-y: auto ">
+              <md-card-content style="height: 56vh" *ngIf="selectedMessage">
+                <h3 md-line>{{selectedMessage.from}}</h3>
+                <h4 md-line>{{selectedMessage.title}}</h4>
+                <p md-line>{{selectedMessage.date}}</p>
+                <p md-line>{{selectedMessage.message}}</p>
+                <button md-raised-button class="pull-right">Reply</button>
+              </md-card-content>
+            </md-card>
+          </div>
+        </div>
+      </div>
+    </md-tab>
+
+    <!--tab Data-->
+    <md-tab label="Data" data-target="#data">
+      <div class="container-fluid tab-container">
+        <h3>Collected Data</h3>
+        <div fxLayout="row" fxLayoutWrap>
+          <div fxFlex="100">
+            <md-card>
+              <md-card-title>
+                <b>Profile</b>
+              </md-card-title>
+              <md-card-content>
+                <table class="table">
+                  <tbody>
+                  <tr>
+                    <td>Profile</td>
+                    <td><a>http://www.facebook.com/wendy.perez</a></td>
+                  </tr>
+                  <tr>
+                    <td>E-Mail</td>
+                    <td>wendy.perez30@example.com</td>
+                  </tr>
+                  <tr>
+                    <td>Registration Date</td>
+                    <td>Sunday, August 1, 2010 at 6:35pm UTC+02</td>
+                  </tr>
+                  <tr>
+                    <td>...</td>
+                    <td>...</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </md-card-content>
+            </md-card>
+          </div>
+          <div fxFlex="100">
+            <md-card>
+              <md-card-title>
+                <b>Timeline Activities</b>
+              </md-card-title>
+              <md-card-content style="height: 300px; overflow-y: auto">
+                <table class="table">
+                  <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Activity</th>
+                    <th>Action</th>
+                  </tr>
+
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let activity of timeline">
+                    <td>{{activity.date | date:'MM/dd/yyyy HH:mm'}}</td>
+                    <td *ngIf="activity.type === 'friend'">
+                      You and {{activity.data.name}} are now friends.
+                    </td>
+                    <td *ngIf="activity.type === 'event'">
+                      You <span *ngIf="activity.data.attending === 'interested'">are interested in</span><span *ngIf="activity.data.attending === 'went'">went</span> to event {{activity.data.name}}.
+                    </td>
+                    <td *ngIf="activity.type === 'music'">
+                      You listened to {{activity.data.title}} from {{activity.data.interpret}} on {{activity.data.app}}.
+                    </td>
+                    <td *ngIf="activity.type === 'post'">
+                      <span *ngIf="activity.data.own">You posted: {{activity.data.text}}</span>
+                      <span *ngIf="!activity.data.own">{{activity.data.name}} posted on your timeline: {{activity.data.text}}</span>
+                    </td>
+                    <td>
+                      <button md-icon-button (click)="openDeleteDataRecordDialog()">
+                        <md-icon>delete</md-icon>
+                      </button>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </md-card-content>
+            </md-card>
+          </div>
+          <div fxFlex="100">
+            <md-card>
+              <md-card-title>
+                <b>Contacts</b>
+              </md-card-title>
+              <md-card-content style="height: 300px; overflow-y: auto">
+                <table class="table">
+                  <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>E-Mail</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let contact of contacts">
+                    <td>{{contact.name}}</td>
+                    <td>{{contact.number}}</td>
+                    <td>{{contact.email}}</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </md-card-content>
+            </md-card>
+          </div>
+          <div fxFlex="100">
+            <md-card>
+              <md-card-title>
+                <b>Ads</b>
+              </md-card-title>
+              <md-card-content style="height: 300px; overflow-y: auto">
+                <table class="table">
+                  <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Name</th>
+                    <th>Company</th>
+                    <th>Clicked</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let ad of adsShown">
+                    <td>{{ad.date | date:'MM/dd/yyyy HH:mm'}}</td>
+                    <td>{{ad.name}}</td>
+                    <td>{{ad.company}}</td>
+                    <td><span *ngIf="ad.clicked">Yes</span><span *ngIf="!ad.clicked">No</span></td>
+                  </tr>
+                  </tbody>
+                </table>
+              </md-card-content>
+            </md-card>
+          </div>
+          <div fxFlex="100">
+            <md-card>
+              <md-card-title>
+                <b>Locations</b>
+              </md-card-title>
+              <md-card-content style="height: 300px; overflow-y: auto">
+                <table class="table">
+                  <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Location</th>
+                    <th>By</th>
+                    <th>Action</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let location of markers">
+                    <td>{{location.date | date:'MM/dd/yyyy HH:mm'}}</td>
+                    <td>{{location.country}}, {{location.city}}, {{location.streetnumber}} {{location.street}}</td>
+                    <td><span *ngIf="location.label === 'L'">Login</span><span *ngIf="location.label === 'P'">Post</span><span *ngIf="location.label === 'M'">Message</span></td>
+                    <td>
+                      <button md-icon-button (click)="openDeleteDataRecordDialog()">
+                        <md-icon>delete</md-icon>
+                      </button>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </md-card-content>
+            </md-card>
+          </div>
+
+        </div>
+      </div>
+    </md-tab>
+
+
+  </md-tab-group>
+</div>
+
+

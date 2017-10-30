@@ -1,0 +1,16 @@
+<h2 md-dialog-title>New Message</h2>
+<md-dialog-content>
+  <md-input-container class="full-width">
+    <input mdInput placeholder="To" disabled value="Jeremy Stevens">
+  </md-input-container>
+  <md-input-container class="full-width">
+    <input mdInput placeholder="Subject">
+  </md-input-container>
+  <md-input-container class="full-width">
+    <textarea mdInput placeholder="Text"></textarea>
+  </md-input-container>
+</md-dialog-content>
+<md-dialog-actions>
+  <button md-button md-dialog-close>Cancel</button>
+  <button md-raised-button [md-dialog-close]="true" color="primary" style="float: right">Send</button>
+</md-dialog-actions>

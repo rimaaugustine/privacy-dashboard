@@ -1,0 +1,27 @@
+<md-toolbar></md-toolbar>
+<div class="container main-container">
+  <md-card>
+    <md-card-header>
+      <md-card-title>
+        <H2>Welcome to the privacy dashboard.</H2>
+        <h3>You can add services here:</h3>
+      </md-card-title>
+    </md-card-header>
+    <md-card-content>
+      <div class="row">
+        <md-input-container class="col-lg-2 col-md-2 col-sm-3 col-xs-4 button-container">
+          <input mdInput type="text" name="title" [(ngModel)]="filterText" placeholder="Search">
+        </md-input-container>
+        <i class="col-lg-2 col-md-2 col-sm-3 col-xs-4 material-icons">search</i>
+      </div>
+      <div class="row">
+        <div *ngFor="let icon of icons | firstServiceFilter: filterText"
+             class="col-lg-2 col-md-2 col-sm-3 col-xs-4 button-container">
+          <button id="{{icon.title}}" ngClass="{{icon.class}}" (click)="ServiceDialog(icon.title)">
+            <label class="my-text">{{icon.title}}</label>
+          </button>
+        </div>
+      </div>
+    </md-card-content>
+  </md-card>
+</div>

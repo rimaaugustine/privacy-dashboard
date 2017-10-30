@@ -1,0 +1,193 @@
+.add-header {
+  width: 100%;
+  min-height: 148px;
+  background-image: url("../../../assets/img/data-analysis-3.jpg");
+  background-position: center center;
+  background-size: cover;
+}
+
+.add-header h2 {
+  text-shadow: 2px 2px black;
+  margin: 0;
+  padding-left: 16px;
+  padding-top: 100px;
+  color: white;
+}
+
+.md-list-item {
+  white-space: pre;
+  overflow: scroll;
+}
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 5px 0px 5px;
+  margin-bottom: 15px;
+}
+
+.link{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 0px 0px 5px;
+  color: #BBDEFB;
+  font-size: medium;
+}
+
+/* Style all font awesome icons */
+.fa {
+  padding: 0;
+  font-size: 60px;
+  width: 90px;
+  height: 90px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 20%;
+  vertical-align: middle;
+  border-width: thin;
+}
+
+.my-text {
+  display: block;
+  font-size: small;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+  opacity: 0.7;
+}
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+/* Twitter */
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+.fa-youtube {
+  background: #bb0000;
+  color: white;
+}
+
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+
+.fa-pinterest {
+  background: #cb2027;
+  color: white;
+}
+
+.fa-snapchat-ghost {
+  background: #fffc00;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.fa-skype {
+  background: #00aff0;
+  color: white;
+}
+
+.fa-foursquare {
+  background: #45bbff;
+  color: white;
+}
+
+.fa-yahoo {
+  background: #430297;
+  color: white;
+}
+
+.fa-soundcloud {
+  background: #ff5500;
+  color: white;
+}
+
+.fa-reddit {
+  background: #ff5700;
+  color: white;
+}
+
+.fa-rss {
+  background: #ff6600;
+  color: white;
+}
+.fa-yelp {
+  background: #d32323;
+  color: white;
+}
+.fa-tripadvisor {
+  background: #589442;
+  color: white;
+}
+.fa-spotify {
+  background: #075e54;
+  color: white;
+}
+.fa-whatsapp {
+  background: #25d366;
+  color: white;
+}
+.fa-paypal {
+  background: #3b7bbf;
+  color: white;
+}
+.fa-slack {
+  background: #E8A723;
+  color: white;
+}
+.fa-telegram {
+  background: #0088cc;
+  color: white;
+}
+.fa-google-plus {
+  background: #d34836;
+  color: white;
+}
+.fa-chrome {
+  background: #db3236;
+  color: white;
+}
+.fa-stack-overflow {
+  background: orange;
+  color: white;
+}
+.fa-amazon {
+  background: #3b7a57;
+  color: white;
+}
+.fa-xing {
+  background: #126567;
+  color: white;
+}
+.fa-dropbox {
+  background: #3d9ae8;
+  color: white;
+}
+.fa-firefox {
+  background: #E55B0A;
+  color: white;
+}
+
+
+

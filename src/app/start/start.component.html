@@ -1,0 +1,102 @@
+<md-sidenav-container class="example-container">
+  <md-sidenav mode="over" #sidenav class="example-sidenav">
+    <nav>
+      <ul>
+        <li>
+          <a (click)="sidenav.close()">
+            About
+          </a>
+        </li>
+        <li>
+          <a routerLink="./gdpr" (click)="sidenav.close()">
+            GDPR
+          </a>
+        </li>
+        <li>
+          <a (click)="sidenav.close()">
+            Support
+          </a>
+        </li>
+        <li>
+          <a routerLink="./login" (click)="sidenav.close()">
+            Login
+          </a>
+        </li>
+        <li>
+          <a routerLink="./signup" (click)="sidenav.close()">
+            Sign Up
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </md-sidenav>
+
+  <md-toolbar color="primary" class="my-toolbar">
+    <button md-button class="menu-button hidden-sm hidden-md hidden-lg" >
+      <md-icon class="menu-icon" (click)="sidenav.open()">menu</md-icon>
+    </button>
+
+    <span class="menu-title" routerLink="./landing">Privacy Dashboard</span>
+    <span class="menu-spacer"></span>
+    <nav class="hidden-xs">
+      <button md-button routerLink="./about">
+        About
+      </button>
+      <button md-button routerLink="./gdpr">
+        GDPR
+      </button>
+      <button md-button routerLink="./support">
+        Support
+      </button>
+      <button md-button routerLink="./login">
+        Login
+      </button>
+      <button md-button routerLink="./signup">
+        Sign Up
+      </button>
+    </nav>
+  </md-toolbar>
+  <router-outlet></router-outlet>
+
+</md-sidenav-container>
+
+
+
+
+<!--<div class="demo-container" mdl-shadow="2">-->
+  <!--<mdl-layout mdl-layout-fixed-header mdl-layout-header-seamed #mdlLayout1="mdlLayout">-->
+    <!--<mdl-layout-header>-->
+      <!--<mdl-layout-header-row>-->
+        <!--<mdl-layout-title id="start-page-title">-->
+          <!--<span routerLink="./landing">Privacy Dashboard</span>-->
+        <!--</mdl-layout-title>-->
+        <!--<mdl-layout-spacer></mdl-layout-spacer>-->
+        <!--&lt;!&ndash; Navigation. We hide it in small screens. &ndash;&gt;-->
+        <!--<nav class="mdl-navigation mdl-layout&#45;&#45;large-screen-only">-->
+          <!--<button class="mdl-button mdl-js-button mdl-js-ripple-effect">About</button>-->
+          <!--<button class="mdl-button mdl-js-button mdl-js-ripple-effect" routerLink="./gdpr" >GDPR</button>-->
+          <!--<button class="mdl-button mdl-js-button mdl-js-ripple-effect">Support</button>-->
+          <!--<button class="mdl-button mdl-js-button mdl-button&#45;&#45;raised mdl-js-ripple-effect mdl-button&#45;&#45;accent" routerLink="./login" >Login</button>-->
+          <!--<button class="mdl-button mdl-js-button mdl-button&#45;&#45;raised mdl-js-ripple-effect mdl-button&#45;&#45;accent" routerLink="./signup" >Sign Up</button>-->
+          <!--<button class="mdl-button mdl-js-button mdl-button&#45;&#45;raised mdl-js-ripple-effect mdl-button&#45;&#45;accent" routerLink="./flashcard" routerLinkActive="active">Flashcard</button>-->
+        <!--</nav>-->
+      <!--</mdl-layout-header-row>-->
+    <!--</mdl-layout-header>-->
+    <!--<mdl-layout-drawer>-->
+      <!--<mdl-layout-title routerLink="./landing" (click)="mdlLayout1.closeDrawer()">Privacy Dashboard</mdl-layout-title>-->
+      <!--<nav class="mdl-navigation">-->
+        <!--<a class="mdl-navigation__link" (click)="mdlLayout1.closeDrawer()">About</a>-->
+        <!--<a class="mdl-navigation__link" routerLink="./gdpr" routerLinkActive="active-link" (click)="mdlLayout1.closeDrawer()">GDPR</a>-->
+        <!--<a class="mdl-navigation__link" (click)="mdlLayout1.closeDrawer()">Support</a>-->
+        <!--<a class="mdl-navigation__link" routerLink="./login" routerLinkActive="active-link" (click)="mdlLayout1.closeDrawer()">Login</a>-->
+        <!--<a class="mdl-navigation__link" routerLink="./signup" routerLinkActive="active-link" (click)="mdlLayout1.closeDrawer()">Sign Up</a>-->
+      <!--</nav>-->
+    <!--</mdl-layout-drawer>-->
+    <!--<mdl-layout-content>-->
+      <!--<router-outlet></router-outlet>-->
+    <!--</mdl-layout-content>-->
+  <!--</mdl-layout>-->
+<!--</div>-->
+
+
+

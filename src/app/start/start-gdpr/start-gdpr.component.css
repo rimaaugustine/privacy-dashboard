@@ -1,0 +1,66 @@
+.main-gdpr {
+  background-image: url("../../../assets/img/EU.jpg");
+  background-size: cover;
+  /*display: block;*/
+  /*filter: blur(5px);*/
+  /*-webkit-filter: blur(5px);*/
+  /*height: 800px;*/
+  /*left: 0;*/
+  /*position: fixed;*/
+  /*right: 0;*/
+  /*z-index: -1;*/
+  /*height: 100%;*/
+}
+
+.vertical-offset-100{
+  padding-top:30px;
+}
+
+
+md-card{
+  /*background-color: #4d90fe;*/
+  text-align: left;
+}
+
+h1{
+  text-align: center !important;
+}
+
+.mat-input-placeholder{
+  color: white!important;
+}
+
+.mat-focused .mat-input-placeholder{
+  /*color: #003cb3;*/
+}
+
+md-card-actions{
+  padding-top: 20px;
+}
+
+.mat-raised-button {
+  /*background-color: #C2185B;*/
+}
+
+body {
+  background-color: #CFD8DC;
+}
+
+
+/*change color*/
+
+
+.md-card-orange{
+  background-color: #BBDEFB;
+}
+
+.md-card-yellow{
+  background-color: #B39DDB;
+}
+
+
+.md-card-green{
+  background-color: #8C9EFF;
+}
+
+
